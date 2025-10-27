@@ -6,14 +6,15 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
+colors: {
         primary: "#6366f1",
         secondary: "#8b5cf6",
         accent: "#ec4899",
         success: "#10b981",
         warning: "#f59e0b",
         error: "#ef4444",
-        info: "#3b82f6"
+        info: "#3b82f6",
+        border: "#e2e8f0"
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"]
