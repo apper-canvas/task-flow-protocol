@@ -5,21 +5,20 @@ import ApperIcon from "@/components/ApperIcon";
 
 const TaskCard = ({ task, onUpdate, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editTitle, setEditTitle] = useState(task.title);
-
+const [editTitle, setEditTitle] = useState(task.title_c);
   const handleToggleComplete = () => {
-    onUpdate(task.Id, { 
-      completed: !task.completed,
-      completedAt: !task.completed ? new Date().toISOString() : null
+onUpdate(task.Id, { 
+      completed_c: !task.completed_c,
+      completed_at_c: !task.completed_c ? new Date().toISOString() : null
     });
   };
 
-  const handleEdit = () => {
+const handleEdit = () => {
     if (isEditing) {
-      if (editTitle.trim() && editTitle !== task.title) {
-        onUpdate(task.Id, { title: editTitle.trim() });
+      if (editTitle.trim() && editTitle !== task.title_c) {
+        onUpdate(task.Id, { title_c: editTitle.trim() });
       } else {
-        setEditTitle(task.title);
+        setEditTitle(task.title_c);
       }
     }
     setIsEditing(!isEditing);
@@ -28,8 +27,8 @@ const TaskCard = ({ task, onUpdate, onDelete }) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleEdit();
-    } else if (e.key === "Escape") {
-      setEditTitle(task.title);
+} else if (e.key === "Escape") {
+      setEditTitle(task.title_c);
       setIsEditing(false);
     }
   };
@@ -71,8 +70,8 @@ const TaskCard = ({ task, onUpdate, onDelete }) => {
     return "upcoming";
   };
 
-  const dueDateLabel = formatDueDate(task.dueDate);
-  const dueDateStatus = getDueDateStatus(task.dueDate);
+const dueDateLabel = formatDueDate(task.due_date_c);
+  const dueDateStatus = getDueDateStatus(task.due_date_c);
 
   return (
     <motion.div
@@ -83,20 +82,20 @@ const TaskCard = ({ task, onUpdate, onDelete }) => {
           ? "border-slate-200 bg-slate-50" 
           : "border-slate-100 hover:border-slate-200"
       }`}
-    >
+>
       <div className="p-4 flex items-start gap-4">
         {/* Priority Indicator */}
-        {task.priority && (
-          <div className={`w-1 h-16 rounded-full ${getPriorityColor(task.priority)}`} />
+        {task.priority_c && (
+          <div className={`w-1 h-16 rounded-full ${getPriorityColor(task.priority_c)}`} />
         )}
 
         {/* Checkbox */}
-        <motion.button
+<motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={handleToggleComplete}
           className={`flex-shrink-0 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
-            task.completed
+            task.completed_c
               ? "bg-gradient-to-r from-success to-emerald-500 border-success text-white"
               : "border-slate-300 hover:border-primary hover:bg-primary/5"
           }`}
@@ -127,13 +126,13 @@ const TaskCard = ({ task, onUpdate, onDelete }) => {
             />
           ) : (
             <motion.h3
-              className={`text-lg font-medium transition-all duration-300 ${
-                task.completed
+className={`text-lg font-medium transition-all duration-300 ${
+                task.completed_c
                   ? "text-slate-500 line-through"
                   : "text-slate-900"
               }`}
             >
-              {task.title}
+              {task.title_c}
               {task.completed && (
                 <motion.div
                   initial={{ width: 0 }}
@@ -147,13 +146,13 @@ const TaskCard = ({ task, onUpdate, onDelete }) => {
           {/* Metadata */}
           <div className="flex flex-wrap items-center gap-3 mt-2">
             {/* Priority Badge */}
-            {task.priority && (
+{task.priority_c && (
               <span className={`text-xs px-2 py-1 rounded-full font-medium ${
-                task.priority === "high" ? "bg-red-100 text-red-700" :
-                task.priority === "medium" ? "bg-yellow-100 text-yellow-700" :
+                task.priority_c === "high" ? "bg-red-100 text-red-700" :
+                task.priority_c === "medium" ? "bg-yellow-100 text-yellow-700" :
                 "bg-blue-100 text-blue-700"
               }`}>
-                {getPriorityLabel(task.priority)}
+                {getPriorityLabel(task.priority_c)}
               </span>
             )}
 
@@ -171,19 +170,19 @@ const TaskCard = ({ task, onUpdate, onDelete }) => {
             )}
 
             {/* Completion Date */}
-            {task.completed && task.completedAt && (
+{task.completed_c && task.completed_at_c && (
               <span className="text-xs text-slate-500">
-                Completed {format(new Date(task.completedAt), "MMM d")}
+                Completed {format(new Date(task.completed_at_c), "MMM d")}
               </span>
             )}
           </div>
 
-          {/* Notes */}
-          {task.notes && (
+{/* Notes */}
+          {task.notes_c && (
             <p className={`text-sm mt-2 ${
-              task.completed ? "text-slate-400" : "text-slate-600"
+              task.completed_c ? "text-slate-400" : "text-slate-600"
             }`}>
-              {task.notes}
+              {task.notes_c}
             </p>
           )}
         </div>

@@ -9,7 +9,7 @@ import ApperIcon from "@/components/ApperIcon";
 import { taskService } from "@/services/api/taskService";
 
 const Home = () => {
-  const [tasks, setTasks] = useState([]);
+const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState("all");
@@ -34,7 +34,7 @@ const Home = () => {
     }
   };
 
-  const handleAddTask = async (taskData) => {
+const handleAddTask = async (taskData) => {
     try {
       const newTask = await taskService.create(taskData);
       setTasks(prev => [newTask, ...prev]);
@@ -102,21 +102,21 @@ const Home = () => {
     }
   };
 
-  const filteredTasks = tasks.filter(task => {
+const filteredTasks = tasks.filter(task => {
     const matchesFilter = 
       filter === "all" ||
-      (filter === "active" && !task.completed) ||
-      (filter === "completed" && task.completed);
+      (filter === "active" && !task.completed_c) ||
+      (filter === "completed" && task.completed_c);
     
     const matchesSearch = 
-      task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (task.notes && task.notes.toLowerCase().includes(searchQuery.toLowerCase()));
+      task.title_c?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (task.notes_c && task.notes_c.toLowerCase().includes(searchQuery.toLowerCase()));
     
     return matchesFilter && matchesSearch;
   });
 
-  const activeTasks = tasks.filter(task => !task.completed);
-  const completedTasks = tasks.filter(task => task.completed);
+  const activeTasks = tasks.filter(task => !task.completed_c);
+  const completedTasks = tasks.filter(task => task.completed_c);
 
   if (error) {
     return (

@@ -11,16 +11,17 @@ const TaskInput = forwardRef(({ onAddTask }, ref) => {
   const [notes, setNotes] = useState("");
   const [showAdvanced, setShowAdvanced] = useState(false);
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
     
     if (!title.trim()) return;
 
     const taskData = {
-      title: title.trim(),
-      priority: priority === "none" ? null : priority,
-      dueDate,
-      notes: notes.trim() || null
+      title_c: title.trim(),
+      completed_c: false,
+      priority_c: priority === "none" ? null : priority,
+      due_date_c: dueDate,
+      notes_c: notes.trim() || null
     };
 
     onAddTask(taskData);
