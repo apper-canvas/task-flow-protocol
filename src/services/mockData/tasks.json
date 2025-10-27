@@ -1,0 +1,92 @@
+{
+  "taskData": [
+    {
+      "Id": 1,
+      "title": "Review quarterly business goals",
+      "completed": false,
+      "priority": "high",
+      "dueDate": "2024-12-20",
+      "category": "work",
+      "notes": "Focus on Q1 objectives and budget allocation",
+      "createdAt": "2024-12-10T09:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "Id": 2,
+      "title": "Complete React project documentation",
+      "completed": true,
+      "priority": "medium",
+      "dueDate": "2024-12-15",
+      "category": "development",
+      "notes": "Include API documentation and component examples",
+      "createdAt": "2024-12-08T14:30:00.000Z",
+      "completedAt": "2024-12-14T16:45:00.000Z"
+    },
+    {
+      "Id": 3,
+      "title": "Grocery shopping for the week",
+      "completed": false,
+      "priority": "low",
+      "dueDate": null,
+      "category": "personal",
+      "notes": "Don't forget organic vegetables and almond milk",
+      "createdAt": "2024-12-09T11:15:00.000Z",
+      "completedAt": null
+    },
+    {
+      "Id": 4,
+      "title": "Schedule dentist appointment",
+      "completed": false,
+      "priority": "medium",
+      "dueDate": "2024-12-22",
+      "category": "health",
+      "notes": "Regular cleaning and check-up",
+      "createdAt": "2024-12-07T08:20:00.000Z",
+      "completedAt": null
+    },
+    {
+      "Id": 5,
+      "title": "Prepare presentation for client meeting",
+      "completed": false,
+      "priority": "high",
+      "dueDate": "2024-12-18",
+      "category": "work",
+      "notes": "Include latest analytics data and ROI projections",
+      "createdAt": "2024-12-06T13:45:00.000Z",
+      "completedAt": null
+    },
+    {
+      "Id": 6,
+      "title": "Read 'Atomic Habits' chapter 5",
+      "completed": true,
+      "priority": null,
+      "dueDate": null,
+      "category": "learning",
+      "notes": "Take notes on habit stacking techniques",
+      "createdAt": "2024-12-05T19:30:00.000Z",
+      "completedAt": "2024-12-11T20:15:00.000Z"
+    },
+    {
+      "Id": 7,
+      "title": "Update LinkedIn profile",
+      "completed": false,
+      "priority": "low",
+      "dueDate": null,
+      "category": "career",
+      "notes": "Add recent project achievements and skills",
+      "createdAt": "2024-12-04T16:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "Id": 8,
+      "title": "Plan weekend hiking trip",
+      "completed": false,
+      "priority": "low",
+      "dueDate": "2024-12-21",
+      "category": "personal",
+      "notes": "Check weather forecast and pack accordingly",
+      "createdAt": "2024-12-03T12:30:00.000Z",
+      "completedAt": null
+    }
+  ]
+}
